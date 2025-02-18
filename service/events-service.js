@@ -4,9 +4,11 @@ const EventsModel = require("../models/events-model");
 module.exports.getAllEvents = async (isProject=false) => {
   try {
     const events = await EventsModel.Event.findAll({
-      type: isProject ? "project" : "event",
+      where: {
+        type: isProject ? "project" : "event", // Correct filtering inside `where`
+      },
       order: [["created", "DESC"]],
-    });
+    });    
     return events;
   } catch (error) {
     throw Error(error);
