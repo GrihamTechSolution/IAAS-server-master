@@ -6,6 +6,7 @@ const controller = require("../controllers/events-controller");
 const routeName = "events";
 
 router.get(`/${routeName}`, controller.getAllEvents);
+router.get(`/${routeName}/projects`, controller.getAllProjects);
 router.get(`/${routeName}/:id`, controller.getEventsById);
 router.post(`/${routeName}`, controller.addEvents);
 router.put(`/${routeName}/:id`, controller.updateEvents);

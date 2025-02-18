@@ -1,7 +1,8 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../common/db-config");
 const User = require("./user-model");
-
+const e = require("express");
+const { DataTypes } = require("sequelize");
 const Model = Sequelize.Model;
 
 class Event extends Model {}
@@ -40,6 +41,10 @@ Event.init(
     },
     created: {
       type: Sequelize.DATE,
+    },
+    type: {
+      type: DataTypes.ENUM("event", "project"),
+      allowNull: false, // Optional: prevents null values
     },
   },
   {

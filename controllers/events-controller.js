@@ -10,7 +10,23 @@ const {
 
 module.exports.getAllEvents = async (req, res) => {
   try {
-    const events = await getAllEvents();
+    const events = await getAllEvents(false);
+    return res.status(200).json({
+      success: true,
+      data: events,
+      message: "successfully get events",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+module.exports.getAllProjects = async (req, res) => {
+  try {
+    const events = await getAllEvents(true);
     return res.status(200).json({
       success: true,
       data: events,

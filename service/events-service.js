@@ -1,9 +1,10 @@
 const User = require("../models/user-model");
 const EventsModel = require("../models/events-model");
 
-module.exports.getAllEvents = async () => {
+module.exports.getAllEvents = async (isProject=false) => {
   try {
     const events = await EventsModel.Event.findAll({
+      type: isProject ? "project" : "event",
       order: [["created", "DESC"]],
     });
     return events;
