@@ -40,6 +40,7 @@ const votingAnswerRouting = require("./routing/voting-answer-routing");
 const uploaderRouting = require("./routing/uploader-routing");
 const eventsRoutes = require("./routing/events-routing");
 const testimonialRoutes = require("./routing/testimonial-routing");
+const aluminiRouting = require("./routing/alumini-routing");
 
 const app = express();
 
@@ -91,6 +92,7 @@ app.use("/api", votingQuestionRouting);
 app.use("/api", votingQuestionOptionRouting);
 app.use("/api", votingUserRouting);
 app.use("/api", votingAnswerRouting);
+app.use("/api", aluminiRouting);
 //upload
 // app.use('/api', fileUpload);
 app.use("/api", uploaderRouting);
