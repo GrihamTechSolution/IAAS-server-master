@@ -23,3 +23,16 @@ module.exports.insertAlumni = (req, res) => {
       });
     });
 };
+
+module.exports.getAlumni = (req, res) => {
+  ApplicationModel.Alumni.findAll({})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send({
+        status: -1,
+        err,
+      });
+    });
+};
