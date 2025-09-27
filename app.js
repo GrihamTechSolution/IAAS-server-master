@@ -42,6 +42,7 @@ const eventsRoutes = require("./routing/events-routing");
 const testimonialRoutes = require("./routing/testimonial-routing");
 const aluminiRouting = require("./routing/alumini-routing");
 const emailSubscriptionRouting = require("./routing/email-subscription-routing");
+const visitorCounterRouting = require("./routing/visitor-counter-routing");
 
 const app = express();
 
@@ -100,6 +101,7 @@ app.use("/api", uploaderRouting);
 app.use("/api", eventsRoutes);
 app.use("/api/testimonials", testimonialRoutes);
 app.use("/api", emailSubscriptionRouting);
+app.use("/api", visitorCounterRouting);
 
 sequelize
   .authenticate()

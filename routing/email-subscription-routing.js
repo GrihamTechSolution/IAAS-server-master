@@ -3,8 +3,11 @@ const emailSubscriptionController = require('./../controllers/email-subscription
 
 const router = express.Router();
 
-// GET /api/emailSubscription - Get all email subscriptions
+// GET /api/emailSubscription - Get all email subscriptions (admin)
 router.route('/emailSubscription').get(emailSubscriptionController.getEmailSubscriptions);
+
+// GET /api/emailSubscription/active - Get only active email subscriptions (public)
+router.route('/emailSubscription/active').get(emailSubscriptionController.getActiveEmailSubscriptions);
 
 // GET /api/emailSubscription/:id - Get email subscription by ID
 router.route('/emailSubscription/:id').get(emailSubscriptionController.getEmailSubscriptionByID);

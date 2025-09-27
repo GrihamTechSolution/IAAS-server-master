@@ -4,6 +4,22 @@ const { sendEmail } = require('../service/mailer-service');
 
 module.exports.getEmailSubscriptions = (req, res) => {
     EmailSubscription.findAll({
+        order: [['subscribedAt', 'DESC']]
+    }).then(data => {
+        res.send({
+            status: 0,
+            data: data
+        });
+    }).catch(err => {
+        res.send({
+            status: -1,
+            error: err.message
+        });
+    });
+};
+
+module.exports.getActiveEmailSubscriptions = (req, res) => {
+    EmailSubscription.findAll({
         where: {
             isActive: true
         },
